@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1>Diabetes Prediction</h1>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+                <span id="theme-emoji" aria-hidden="true">🌙</span>
+                <img id="theme-icon" src="../brightness.png" alt="Light mode" />
+            </button>
+        </header>
+
+        <form id="predict-form">
+            <div class="grid">
+                <label>
+                    <span class="label-row">Pregnancies <span class="unit">(count)</span> <span class="info" data-tooltip="Number of times the patient has been pregnant.">ⓘ</span></span>
+                    <input type="number" id="pregnancies" name="pregnancies" min="0" step="1" required />
+                </label>
+                <label>
+                    <span class="label-row">Glucose <span class="unit">(mg/dL)</span> <span class="info" data-tooltip="Plasma glucose concentration (mg/dL) during a 2-hour oral glucose tolerance test.">ⓘ</span></span>
+                    <input type="number" id="Glucose" name="Glucose" min="0" step="1" required />
+                </label>
+                <label>
+                    <span class="label-row">Blood Pressure <span class="unit">(mm Hg)</span> <span class="info" data-tooltip="Diastolic blood pressure (mm Hg).">ⓘ</span></span>
+                    <input type="number" id="BloodPressure" name="BloodPressure" min="0" step="1" required />
+                </label>
+                <label>
+                    <span class="label-row">Skin Thickness <span class="unit">(mm)</span> <span class="info" data-tooltip="Triceps skinfold thickness (mm).">ⓘ</span></span>
+                    <input type="number" id="SkinThickness" name="SkinThickness" min="0" step="1" required />
+                </label>
+                <label>
+                    <span class="label-row">Insulin <span class="unit">(mu U/ml)</span> <span class="info" data-tooltip="2-hour serum insulin (mu U/ml).">ⓘ</span></span>
+                    <input type="number" id="Insulin" name="Insulin" min="0" step="1" required />
+                </label>
+                <label>
+                    <span class="label-row">BMI <span class="unit">(kg/m²)</span> <span class="info" data-tooltip="Body mass index (weight in kg / height in m²).">ⓘ</span></span>
+                    <input type="number" id="BMI" name="BMI" min="0" step="0.1" required />
+                </label>
+                <label>
+                    <span class="label-row">Diabetes Pedigree Function <span class="unit">(score)</span> <span class="info" data-tooltip="Scores the likelihood of diabetes based on family history.">ⓘ</span></span>
+                    <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" min="0" step="0.001" required />
+                </label>
+                <label>
+                    <span class="label-row">Age <span class="unit">(years)</span> <span class="info" data-tooltip="Age of the patient (in years).">ⓘ</span></span>
+                    <input type="number" id="Age" name="Age" min="0" step="1" required />
+                </label>
+            </div>
+
+            <div class="actions">
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+
+        <section id="result" class="result" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Set your API base URL here. Change to your ngrok URL if using ngrok.
+        // Example ngrok: 'https://YOUR-NGROK-ID.ngrok-free.app'
+        window.API_BASE = 'https://diabetes-prediction-model-95jb.onrender.com';
+    </script>
+</body>
+</html>
+
+
